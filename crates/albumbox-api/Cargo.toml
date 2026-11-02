@@ -1,0 +1,36 @@
+[package]
+name = "albumbox-api"
+version.workspace = true
+edition.workspace = true
+
+[[bin]]
+name = "albumbox-api"
+path = "src/main.rs"
+
+[dependencies]
+albumbox-core.workspace = true
+albumbox-indexer.workspace = true
+anyhow.workspace = true
+serde.workspace = true
+serde_json.workspace = true
+tokio.workspace = true
+tracing.workspace = true
+time.workspace = true
+axum = "0.8"
+axum-extra = { version = "0.10", features = ["cookie"] }
+tower-http = { version = "0.6", features = ["fs", "trace", "compression-gzip", "set-header"] }
+tracing-subscriber = { version = "0.3", features = ["env-filter"] }
+tracing-appender = "0.2"
+toml = "0.8"
+futures = "0.3"
+tower = { version = "0.5", features = ["util"] }
+
+[target.'cfg(windows)'.dependencies]
+windows-service = "0.8"
+
+[dev-dependencies]
+
+http-body-util = "0.1"
+tempfile = "3"
+sqlx.workspace = true
+image = { version = "0.25", default-features = false, features = ["png"] }

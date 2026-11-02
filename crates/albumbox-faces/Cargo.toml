@@ -1,0 +1,11 @@
+[package]
+name = "albumbox-faces"
+version.workspace = true
+edition.workspace = true
+
+[dependencies]
+anyhow.workspace = true
+tracing.workspace = true
+ort = { version = "=2.0.0-rc.15", default-features = false, features = ["std", "ndarray", "tracing", "load-dynamic"] }
+ndarray = "0.17"
+image = { version = "0.25", default-features = false, features = ["jpeg", "png"] }
